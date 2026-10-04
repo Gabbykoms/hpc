@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(hpc VERSION 0.1.0 LANGUAGES C CXX)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_executable(average containers/vectors/average.cpp)
+add_executable(average2 containers/vectors/average2.cpp)
+add_executable(median containers/lists/median.cpp)
+add_executable(taylor Algos/taylor.cpp)
+add_library(kernel STATIC fractals/kernel.cpp)
+target_compile_features(kernel PUBLIC cxx_std_11)
+add_executable(single-thread fractals/single-thread.cpp)
+target_link_libraries(single-thread PRIVATE kernel)

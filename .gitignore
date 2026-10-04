@@ -1,0 +1,5 @@
+/build/
+/uild/
+/cmake-build-*/
+/image_serial_*.ppm
+.DS_Store
